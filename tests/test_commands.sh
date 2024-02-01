@@ -6,6 +6,7 @@ git config --global user.github "kondratyevd"
 ls -l
 pwd
 
+source /cvmfs/cms.cern.ch/cmsset_default.sh
 chmod +x setup.sh
 # mkdir cmssw
 # chmod -R 777 cmssw
