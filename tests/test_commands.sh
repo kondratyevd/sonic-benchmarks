@@ -2,7 +2,7 @@ git config --global user.email "kondratyev.d.95@gmail.com"
 git config --global user.name "Dmitry Kondratyev"
 git config --global user.github "kondratyevd"
 
-sudo apt-get install -y libssl-dev
+sudo yum install openssl-devel
 
 sudo chmod +x setup.sh
 sudo mkdir cmssw
