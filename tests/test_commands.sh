@@ -1,5 +1,6 @@
 git config --global user.email "kondratyev.d.95@gmail.com"
 git config --global user.name "Dmitry Kondratyev"
+git config --global user.github "kondratyevd"
        
 wget https://raw.githubusercontent.com/fastmachinelearning/sonic-workflows/CMSSW_13_3_X/setup.sh
 chmod +x setup.sh
