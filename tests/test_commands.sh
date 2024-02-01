@@ -4,7 +4,7 @@ git config --global user.github "kondratyevd"
        
 wget https://raw.githubusercontent.com/fastmachinelearning/sonic-workflows/CMSSW_13_3_X/setup.sh
 chmod +x setup.sh
-./setup.sh
+./setup.sh -a https
 
 cd CMSSW_13_3_0_pre4/src/sonic-workflows
 cmsenv
