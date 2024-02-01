@@ -2,7 +2,7 @@ git config --global user.email "kondratyev.d.95@gmail.com"
 git config --global user.name "Dmitry Kondratyev"
 git config --global user.github "kondratyevd"
        
-chmod +x setup.sh
+sudo chmod +x setup.sh
 ./setup.sh -a https
 
 cd CMSSW_13_3_0_pre4/src
