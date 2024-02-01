@@ -6,9 +6,6 @@ git config --global user.github "kondratyevd"
 ls -l
 pwd
 
-which python
-# yum install -y python3
-
 source /cvmfs/cms.cern.ch/cmsset_default.sh
 chmod +x setup.sh
 # mkdir cmssw

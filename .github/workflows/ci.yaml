@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Start a container and run commands
         env:
-          docker_image: aperloff/cms-cvmfs-docker:light
+          docker_image: aperloff/cms-cvmfs-docker:latest
         run: |
           chmod +x tests/test_commands.sh
           docker run -v ${PWD}:/home/cmsusr --rm --privileged -e CVMFS_MOUNTS="cms.cern.ch" ${{ env.docker_image }} /bin/bash -c /home/cmsusr/tests/test_commands.sh
