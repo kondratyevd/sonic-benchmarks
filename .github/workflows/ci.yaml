@@ -12,9 +12,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Start a container and run commands
         env:
-	  docker_image: "aperloff/cms-cvmfs-docker:light"
-	  # docker_image: "gitlab-registry.cern.ch/cms-cloud/cmssw-docker/cc7-cvmfs"
+	  docker_image: aperloff/cms-cvmfs-docker:light
+	  # docker_image: gitlab-registry.cern.ch/cms-cloud/cmssw-docker/cc7-cvmfs
         run: |
           chmod +x tests/test_commands.sh
-          #docker run -v ${PWD}:/code --rm --privileged ${{ env.docker_options }} /bin/bash -c /code/tests/test_commands.sh
+          docker run -v ${PWD}:/code --rm --privileged ${{ env.docker_options }} /bin/bash -c /code/tests/test_commands.sh
 
