@@ -6,7 +6,8 @@ wget https://raw.githubusercontent.com/fastmachinelearning/sonic-workflows/CMSSW
 chmod +x setup.sh
 ./setup.sh -a https
 
-cd CMSSW_13_3_0_pre4/src/sonic-workflows
+cd CMSSW_13_3_0_pre4/src
 cmsenv
 
-cmsRun run.py maxEvents=10000 sonic=False device="cpu"
+cd /code/
+cmsRun run.py config="tests/step2_cfg.py" maxEvents=10 sonic=False device="cpu"

@@ -15,5 +15,5 @@ jobs:
       - name: Start a container and run commands
         run: |
           chmod +x tests/test_commands.sh
-          docker run -v ${PWD}:/work --rm --privileged gitlab-registry.cern.ch/cms-cloud/cmssw-docker/cc7-cvmfs /bin/bash -c /work/tests/test_commands.sh
+          docker run -v ${PWD}:/code --rm --privileged gitlab-registry.cern.ch/cms-cloud/cmssw-docker/cc7-cvmfs /bin/bash -c /code/tests/test_commands.sh
 
