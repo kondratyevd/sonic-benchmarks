@@ -15,5 +15,5 @@ jobs:
           docker_image: aperloff/cms-cvmfs-docker:light
         run: |
           chmod +x tests/test_commands.sh
-          docker run -v ${PWD}:/home/cmsusr --rm --privileged ${{ env.docker_image }} /bin/bash -c /home/cmsusr/tests/test_commands.sh
+          docker run -v ${PWD}:/home/cmsusr --rm --privileged -e CVMFS_MOUNTS="cms.cern.ch" ${{ env.docker_image }} /bin/bash -c /home/cmsusr/tests/test_commands.sh
 
