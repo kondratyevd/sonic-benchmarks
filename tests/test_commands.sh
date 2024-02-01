@@ -3,7 +3,7 @@ git config --global user.name "Dmitry Kondratyev"
 git config --global user.github "kondratyevd"
        
 sudo chmod +x setup.sh
-mkdir cmssw
+sudo mkdir cmssw
 sudo chmod -R 777 cmssw
 cd cmssw
 ../setup.sh -a https
