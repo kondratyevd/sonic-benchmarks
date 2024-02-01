@@ -10,11 +10,10 @@ chmod +x setup.sh
 # mkdir cmssw
 # chmod -R 777 cmssw
 # cd cmssw
-../setup.sh -a https
+./setup.sh -a https
 
 cd CMSSW_13_3_0_pre4/src
 cmsenv
 
 cd /home/cmsusr
-ls -l
 cmsRun run.py config="step2_cfg.py" maxEvents=10 sonic=False device="cpu"
