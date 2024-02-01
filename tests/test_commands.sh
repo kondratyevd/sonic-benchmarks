@@ -15,6 +15,6 @@ chmod +x setup.sh
 cd CMSSW_13_3_0_pre4/src
 cmsenv
 
-cd /code/
+cd /home/cmsusr
 ls -l
 cmsRun run.py config="step2_cfg.py" maxEvents=10 sonic=False device="cpu"
