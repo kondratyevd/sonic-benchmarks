@@ -15,5 +15,5 @@ jobs:
 	  docker_image: aperloff/cms-cvmfs-docker:light
         run: |
           chmod +x tests/test_commands.sh
-          docker run -v ${PWD}:/code --rm --privileged ${{ env.docker_options }} /bin/bash -c /code/tests/test_commands.sh
+          docker run -v ${PWD}:/code --rm --privileged ${{ env.docker_image }} /bin/bash -c /code/tests/test_commands.sh
 
