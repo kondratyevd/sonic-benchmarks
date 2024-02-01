@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Start a container
-        run: docker run --rm --privileged gitlab-registry.cern.ch/cms-cloud/cmssw-docker/cc7-cvmfs /bin/bash -c "ls -l"
+      - name: Start a container and run commands
+        run: |
+          chmod +x commands.sh
+          docker run --rm --privileged gitlab-registry.cern.ch/cms-cloud/cmssw-docker/cc7-cvmfs /bin/bash -c "commands.sh"
 
