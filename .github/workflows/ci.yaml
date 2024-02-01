@@ -11,7 +11,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Start a container
-        id: container
-        run: | 
-	  docker run --rm --privileged -it gitlab-registry.cern.ch/cms-cloud/cmssw-docker/cc7-cvmfs /bin/bash -c "ls -l"
+        run: docker run --rm --privileged -it gitlab-registry.cern.ch/cms-cloud/cmssw-docker/cc7-cvmfs /bin/bash -c "ls -l"
 
