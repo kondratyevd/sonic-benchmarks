@@ -2,7 +2,6 @@ git config --global user.email "kondratyev.d.95@gmail.com"
 git config --global user.name "Dmitry Kondratyev"
 git config --global user.github "kondratyevd"
 
-yum install -y openssl-devel
 ls -l
 pwd
 
