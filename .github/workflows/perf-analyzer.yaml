@@ -26,7 +26,7 @@ jobs:
           commands_file: tests/test_perf_analyzer.sh
           out_file: perf-analyzer-output.txt
         run: |
-          docker run -d --rm ${{ env.docker_image }} /bin/bash -c ${{ commands_file }} | tee ${{ out_file }} 
+          docker run -d --rm ${{ env.docker_image }} /bin/bash -c ${{ env.commands_file }} | tee ${{ env.out_file }} 
 
       - name: Stop Triton Server
         env:

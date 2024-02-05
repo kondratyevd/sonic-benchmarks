@@ -17,5 +17,5 @@ jobs:
           commands_file: tests/test_miniaod.sh
         run: |
           chmod +x tests/test_miniaod.sh
-          docker run -v ${PWD}:/home/cmsusr --rm --privileged -e CVMFS_MOUNTS="cms.cern.ch" ${{ env.docker_image }} /bin/bash -c /home/cmsusr/${{ commands_file }}
+          docker run -v ${PWD}:/home/cmsusr --rm --privileged -e CVMFS_MOUNTS="cms.cern.ch" ${{ env.docker_image }} /bin/bash -c /home/cmsusr/${{ env.commands_file }}
 
