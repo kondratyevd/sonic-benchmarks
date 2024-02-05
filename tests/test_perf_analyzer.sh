@@ -3,7 +3,7 @@ cd clients
 wget -q https://github.com/triton-inference-server/server/releases/download/v2.42.0/v2.42.0_ubuntu2204.clients.tar.gz
 tar xzf v2.42.0_ubuntu2204.clients.tar.gz
 
-sudo apt-get install -y libb64-dev
+sudo apt-get install -y libb64-dev cuda-toolkit
 
 cd ../
 pwd
