@@ -4,8 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - master
-
+    - master
 jobs:
   perf-analyzer-job:
     runs-on: ubuntu-latest
@@ -16,20 +15,20 @@ jobs:
 
       - name: Start Triton Server
         env:
-	  docker_image: nvcr.io/nvidia/tritonserver:21.02-py3-geometric
+          docker_image: nvcr.io/nvidia/tritonserver:21.02-py3-geometric
         run: |
           docker run -d --rm -p 8000:8000 -p 8001:8001 -p 8002:8002 \
           -v $PWD/models:/models ${{ env.docker_image }} tritonserver --model-store=/models
 
       - name: Run Perf Analyzer
         env:
-	  docker_image: nvcr.io/nvidia/tritonserver:21.10-py3-sdk
-	  commands_file: tests/test_perf_analyzer.sh
-	  out_file: perf-analyzer-output.txt
+          docker_image: nvcr.io/nvidia/tritonserver:21.10-py3-sdk
+          commands_file: tests/test_perf_analyzer.sh
+          out_file: perf-analyzer-output.txt
         run: |
-	  docker run -d --rm ${{ env.docker_image }} /bin/bash -c ${{ commands_file }} | tee ${{ out_file }} 
+          docker run -d --rm ${{ env.docker_image }} /bin/bash -c ${{ commands_file }} | tee ${{ out_file }} 
 
       - name: Stop Triton Server
         env:
-	  docker_image: nvcr.io/nvidia/tritonserver:21.02-py3-geometric
+          docker_image: nvcr.io/nvidia/tritonserver:21.02-py3-geometric
         run: docker stop $(docker ps -q --filter ancestor=${{ env.docker_image }})
