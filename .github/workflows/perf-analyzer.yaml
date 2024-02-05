@@ -8,14 +8,21 @@ on:
 jobs:
   perf-analyzer-job:
     runs-on: ubuntu-latest
-    container:
-      image: fastml/triton-torchgeo:21.02-py3-geometric
+    #container:
+    #  image: fastml/triton-torchgeo:21.02-py3-geometric
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Start Triton server
-        run: tritonserver --model-store=models
+      - name: Start Triton Server
+        env:
+          docker_image: fastml/triton-torchgeo:21.02-py3-geometric
+        run: |
+          docker run -d --rm -p 8000:8000 -p 8001:8001 -p 8002:8002 \
+          -v $PWD/models:/models ${{ env.docker_image }} tritonserver --model-store=/models
+
+      #- name: Start Triton server
+      #  run: tritonserver --model-store=models
 
       - name: Run perf_analyzer
         run: /bin/bash -c ${{ env.commands_file }} | tee ${{ env.out_file }}
@@ -42,7 +49,7 @@ jobs:
       #  run: |
       #    docker run -d --rm ${{ env.docker_image }} /bin/bash -c ${{ env.commands_file }} | tee ${{ env.out_file }} 
 
-      #- name: Stop Triton Server
-      #  env:
-      #    docker_image: fastml/triton-torchgeo:21.02-py3-geometric
-      #  run: docker stop $(docker ps -q --filter ancestor=${{ env.docker_image }})
+      - name: Stop Triton Server
+        env:
+          docker_image: fastml/triton-torchgeo:21.02-py3-geometric
+        run: docker stop $(docker ps -q --filter ancestor=${{ env.docker_image }})
