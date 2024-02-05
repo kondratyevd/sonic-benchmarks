@@ -25,7 +25,7 @@ jobs:
       #  run: tritonserver --model-store=models
 
       - name: Run perf_analyzer
-        run: /bin/bash -c ${{ env.commands_file }} | tee ${{ env.out_file }}
+        run: chmod +x ${{ env.commands_file }} && /bin/bash -c ${{ env.commands_file }} | tee ${{ env.out_file }}
         #- name: Run perf_analyzer
         #  uses: docker://nvcr.io/nvidia/tritonserver:21.10-py3-sdk
         #  with:

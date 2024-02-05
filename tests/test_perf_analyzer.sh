@@ -4,6 +4,7 @@ wget https://github.com/triton-inference-server/server/releases/download/v2.42.0
 tar xzf v2.42.0_ubuntu2204.clients.tar.gz
 
 cd ../
+ps
 pwd
 ls -l
 
