@@ -33,7 +33,7 @@ process.maxEvents = cms.untracked.PSet(
 # Input source
 process.source = cms.Source("PoolSource",
     #fileNames = cms.untracked.vstring('file:/afs/cern.ch/work/a/anstein/public/CMSSW_12_6_0_patch1/src/RecoBTag/ONNXRuntime/test/AODinput_mcRun3.root'),
-    fileNames = cms.untracked.vstring('file:TTto2L2Nu_HT-500_NJet-7_TuneCP5_13p6TeV_powheg-pythia8_Run3Summer22DRPremix-124X_mcRun3_2022_realistic_v12-v1_10events.root'),
+    fileNames = cms.untracked.vstring('file:tests/TTto2L2Nu_HT-500_NJet-7_TuneCP5_13p6TeV_powheg-pythia8_Run3Summer22DRPremix-124X_mcRun3_2022_realistic_v12-v1_10events.root'),
     secondaryFileNames = cms.untracked.vstring(),
 )
 
