@@ -1,0 +1,21 @@
+name: MiniAOD workflow test
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - master
+jobs:
+  test_workflow:
+    runs-on: ubuntu-latest
+    name: Test MiniAOD workflow using CVMFS docker image
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Start a container and run commands
+        env:
+          docker_image: kondratyevd/cms-cvmfs-docker:light-sonic
+	  commands_file: tests/test_miniaod.sh
+        run: |
+          chmod +x tests/test_miniaod.sh
+          docker run -v ${PWD}:/home/cmsusr --rm --privileged -e CVMFS_MOUNTS="cms.cern.ch" ${{ env.docker_image }} /bin/bash -c /home/cmsusr/${{ commands_file }}
+

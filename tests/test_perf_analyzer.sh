@@ -1,0 +1,1 @@
+perf_analyzer --model-repository=$PWD/models:/models --async -m deepmet -u localhost:8001 -p 1000 -b 100 --input-data "random"
